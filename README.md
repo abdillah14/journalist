@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Journalist Agent
+
+An AI-powered SaaS application that researches, writes, and edits newsroom-ready articles automatically.
+
+Built with Next.js 14, TypeScript, Tailwind CSS, and OpenAI GPT-4o.
+
+## Features
+
+- **AI-Powered Research** — Automatically searches the web for relevant sources via SerpAPI
+- **Intelligent Article Writing** — Generates structured, factual, and engaging articles using GPT-4o
+- **Editorial-Grade Refinement** — Polishes content to professional journalism standards
 
 ## Getting Started
 
-First, run the development server:
+### 1. Install dependencies
+
+```bash
+npm install
+```
+
+### 2. Configure environment variables
+
+Copy the example env file and add your API keys:
+
+```bash
+cp .env.example .env.local
+```
+
+Required keys:
+
+- `OPENAI_API_KEY` — Your OpenAI API key (https://platform.openai.com/api-keys)
+- `SERPAPI_API_KEY` — Your SerpAPI key (https://serpapi.com/manage-api-key)
+
+### 3. Run the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the marketing homepage.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Navigate to [http://localhost:3000/dashboard](http://localhost:3000/dashboard) to use the AI Journalist Agent.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project Structure
 
-## Learn More
+```
+app/
+├── page.tsx                  # Marketing homepage
+├── layout.tsx                # Root layout
+├── globals.css               # Global styles
+├── dashboard/
+│   └── page.tsx              # AI Journalist Agent dashboard
+└── api/
+    └── generate/
+        └── route.ts          # AI agent orchestration endpoint
+```
 
-To learn more about Next.js, take a look at the following resources:
+## How It Works
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The AI agent runs three sequential steps:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. **Searcher** — Generates search queries from the topic, fetches results from SerpAPI
+2. **Writer** — Uses GPT-4o to write a structured article draft from research data
+3. **Editor** — Refines tone, clarity, and structure to journalism standards
 
-## Deploy on Vercel
+## Tech Stack
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Next.js 14 (App Router)
+- TypeScript
+- Tailwind CSS
+- OpenAI GPT-4o
+- SerpAPI
+- Lucide React (icons)
