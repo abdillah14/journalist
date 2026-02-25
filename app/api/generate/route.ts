@@ -99,14 +99,43 @@ async function writerAgent(
         role: "system",
         content: `You are an expert journalist and article writer. Using the research data provided, write a well-structured, factual, and engaging news article.
 
-Requirements:
-- Write a compelling headline
-- Include a strong lead paragraph
-- Organize with clear sections
-- Maintain a neutral, professional journalistic tone
-- Use facts from the research data where available
+You MUST format the article in clean Markdown using this structure:
+
+# [Compelling Headline]
+
+**[One-line dateline or summary in bold]**
+
+[Strong lead paragraph that hooks the reader]
+
+## Background
+
+[Context and background information]
+
+## Key Developments
+
+[Core facts and developments, use bullet points where appropriate]
+
+## Analysis
+
+[Expert analysis and implications]
+
+## What's Next
+
+[Future outlook and what to watch for]
+
+---
+
+*[Source attribution line in italics]*
+
+Additional formatting rules:
+- Use **bold** for key names, figures, and important terms
+- Use bullet points (- ) for lists of facts or key points
+- Use > blockquotes for notable statements
+- Keep paragraphs short (2-4 sentences max)
 - Aim for 600-900 words
-- Do not fabricate quotes or statistics not present in the research`,
+- Maintain a neutral, professional journalistic tone
+- Do not fabricate quotes or statistics not present in the research
+- Use facts from the research data where available`,
       },
       {
         role: "user",
@@ -114,7 +143,7 @@ Requirements:
       },
     ],
     temperature: 0.6,
-    max_tokens: 2000,
+    max_tokens: 3000,
   });
 
   return response.choices[0]?.message?.content || "";
@@ -140,7 +169,17 @@ Your editorial pass should:
 - Ensure smooth paragraph transitions
 - Maintain factual accuracy — do not add new information
 
-Return only the final polished article, no commentary.`,
+Markdown formatting rules you MUST preserve and enhance:
+- The article MUST start with a # Heading for the headline
+- Use ## for section headings (Background, Key Developments, Analysis, What's Next)
+- Use **bold** for key names, numbers, and important terms
+- Use > for notable quotes or statements
+- Use - for bullet point lists
+- Use --- for section dividers where appropriate
+- Use *italics* for source attributions
+- Keep paragraphs short and scannable
+
+Return only the final polished article in proper Markdown, no commentary.`,
       },
       {
         role: "user",
@@ -148,7 +187,7 @@ Return only the final polished article, no commentary.`,
       },
     ],
     temperature: 0.3,
-    max_tokens: 2000,
+    max_tokens: 3000,
   });
 
   return response.choices[0]?.message?.content || draft;
