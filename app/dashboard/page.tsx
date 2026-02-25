@@ -106,7 +106,7 @@ export default function DashboardPage() {
             </div>
             <div>
               <h1 className="text-base font-bold text-gray-900 leading-tight">
-                AI Journalist Agent
+                PressPilot
               </h1>
               <p className="text-[11px] text-gray-500 leading-tight">
                 Dashboard

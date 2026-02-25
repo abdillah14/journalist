@@ -32,7 +32,7 @@ export default function HomePage() {
               <Newspaper className="w-5 h-5 text-white" />
             </div>
             <span className="text-lg font-bold text-gray-900 tracking-tight">
-              AI Journalist
+              PressPilot
             </span>
           </Link>
           <div className="hidden sm:flex items-center gap-8">
@@ -68,7 +68,7 @@ export default function HomePage() {
 
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-gray-900 text-balance">
-            AI Journalist Agent
+            PressPilot
           </h1>
           <p className="mt-6 text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto text-balance leading-relaxed">
             Research, write, and edit newsroom-ready articles automatically
@@ -116,7 +116,7 @@ export default function HomePage() {
       <footer className="border-t border-gray-200 bg-gray-50 px-6 py-8">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-gray-500">
-            &copy; 2026 AI Journalist Agent. All rights reserved.
+            &copy; 2026 PressPilot. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <a

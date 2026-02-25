@@ -8,7 +8,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "AI Journalist Agent",
+  title: "PressPilot",
   description:
     "Research, write, and edit newsroom-ready articles automatically using AI.",
 };
